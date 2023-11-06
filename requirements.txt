@@ -1,0 +1,5 @@
+fastapi
+uvicorn
+nacos-sdk-python
+apscheduler
+suds-py3

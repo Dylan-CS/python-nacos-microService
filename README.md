@@ -1,3 +1,26 @@
+```
+python37 -m pip install virtualenv
+python37 -m virtualenv venv
+.\venv\Scripts\activate
+
+python37 -m pip install -r requirements.txt
+
+<!-- nacos开启鉴权
+开启鉴权之前，application.properties中的配置信息为：
+
+### If turn on auth system:
+nacos.core.auth.enabled=false
+开启鉴权之后，application.properties中的配置信息为：
+
+### If turn on auth system:
+nacos.core.auth.system.type=nacos
+nacos.core.auth.enabled=true -->
+
+接着
+python37 ./src/main.py
+```
+
+
 ## FastAPI Best Practices
 Opinionated list of best practices and conventions we used at our startup.
 

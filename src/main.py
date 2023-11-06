@@ -6,15 +6,15 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from suds.client import Client
 from suds.transport.https import HttpAuthenticated
  
-client=nacos.NacosClient('172.16.244.200:8848',namespace='Public')
+client=nacos.NacosClient('192.168.86.216:8848',namespace='d554e4e8-3a66-4661-ab17-75d6c7510eb3')
  
 async def beat():
-    client.add_naming_instance('fastapi-service','172.16.244.10',8000,group_name='dev')
+    client.add_naming_instance('fastapi-service','192.168.86.216',8000,group_name='DEFAULT_GROUP')
     
  
 # 微服务注册nacos
 def register_nacos():
-    client.add_naming_instance('fastapi-service','172.16.244.10',8000,group_name='dev')
+    client.add_naming_instance('fastapi-service','192.168.86.216',8000,group_name='DEFAULT_GROUP')
  
  
 app=FastAPI()
@@ -34,3 +34,6 @@ def init_scheduler():
 async def sap_materials():
     ''' 功能实现'''
     return JSONResponse({'code':1000,'msg':'succ','data':data},status_code=200)
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
